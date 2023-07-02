@@ -1,0 +1,81 @@
+/* Reset default browser styles */
+body, header, nav, ul, li, p, h2 {
+  margin: 0;
+  padding: 0;
+}
+
+/* Header styles */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+img {
+  width: 100px;
+  height: auto;
+}
+
+.contact-info span {
+  margin-right: 20px;
+}
+
+input[type="text"] {
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #ccc;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.signup {
+  background-color: yellow;
+  color: black;
+}
+
+/* Section styles */
+section {
+  display: flex;
+  padding: 20px;
+}
+
+.sidebar {
+  margin-top:180px;
+  flex: 1;
+  padding-right: 20px;
+}
+
+.sidebar h2 {
+  margin-bottom: 10px;
+}
+
+.image-section {
+  margin-top: 100px;
+  flex: 1;
+  position: relative;
+}
+
+.image-section img {
+  width: 100%;
+  height: auto;
+}
+.yellow-button{
+  margin-top: 20px;
+  background-color: yellow;
+  color: black;
+}
