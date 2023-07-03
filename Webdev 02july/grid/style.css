@@ -1,0 +1,25 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
+  grid-template-rows: auto auto; /* Rows will adjust to content height */
+  grid-gap: 10px; /* Gap between grid items */
+  background-color: blue; /* Background color of the grid */
+}
+
+.box {
+  background-color: blue; /* Background color of the boxes */
+}
+
+.box:first-child {
+  grid-column: 1 / span 2; /* Box spans two columns */
+  grid-row: 1; /* First row */
+}
+
+.box:nth-child(2) {
+  grid-row: 1; /* First row */
+}
+
+.box:nth-child(3) {
+  grid-column: 1 / span 2; /* Box spans two columns */
+  grid-row: 2; /* Second row */
+}
