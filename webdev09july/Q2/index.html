@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Input Box</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="center">
+      <input type="text" id="inputBox" />
+      <button id="submitButton">Submit</button>
+      <div class="inner">
+        <div id="output"></div>
+      </div>
+    </div>
+    <script>
+      var inputBox = document.getElementById("inputBox");
+      var submitButton = document.getElementById("submitButton");
+      var output = document.getElementById("output");
+
+      submitButton.addEventListener("click", function () {
+        var text = inputBox.value;
+        output.innerHTML += text + "<br>";
+      });
+    </script>
+  </body>
+</html>
