@@ -1,36 +1,41 @@
-window.addEventListener("DOMContentLoaded", () => {
-  const loader = document.querySelector(".loader");
-  const dataContainer = document.getElementById("data");
+document.addEventListener("DOMContentLoaded", () => {
+  const app = document.getElementById("app");
 
-  loader.style.display = "flex"; // Display the loader initially
+  const apiUrl = "https://jsonplaceholder.typicode.com/posts";
 
-  fetch("https://jsonplaceholder.typicode.com/posts")
+  fetch(apiUrl)
     .then((response) => response.json())
     .then((data) => {
-      loader.style.display = "none"; // Hide the loader
+      const skeletonLoaderCount = data.length;
 
-      // Display the fetched data
-      dataContainer.style.display = "block";
+      // Remove skeleton loaders
+      app.innerHTML = "";
 
+      // Display fetched data
       data.forEach((item) => {
-        const card = document.createElement("div");
-        card.classList.add("card");
-        card.innerHTML = `
-            <h2>${item.title}</h2>
-            <p>${item.body}</p>
-          `;
-        dataContainer.appendChild(card);
-      });
-
-      // Add spacing between each loader
-      const loaders = document.querySelectorAll(".loader");
-      loaders.forEach((loader) => {
-        loader.style.marginTop = "20px";
+        const postElement = createPostElement(item);
+        app.appendChild(postElement);
       });
     })
     .catch((error) => {
-      loader.style.display = "none";
-      dataContainer.innerText = "Error fetching data. Please try again later.";
-      console.error(error);
+      console.log("An error occurred:", error);
     });
+
+  function createPostElement(post) {
+    const postElement = document.createElement("div");
+    postElement.innerHTML = `
+      <h2>${post.title}</h2>
+      <p>${post.body}</p>
+    `;
+    return postElement;
+  }
+
+  // Show skeleton loaders while data is being fetched
+  const skeletonLoaderCount = 15; // Set the desired number of initial skeleton loaders
+
+  for (let i = 0; i < skeletonLoaderCount; i++) {
+    const skeletonLoader = document.createElement("div");
+    skeletonLoader.classList.add("skeleton-loader");
+    app.appendChild(skeletonLoader);
+  }
 });
